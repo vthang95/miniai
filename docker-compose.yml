@@ -1,0 +1,16 @@
+version: '3'
+services:
+  miniai_db:
+    image: postgres:16.2
+    container_name: miniai_db
+    environment:
+      POSTGRES_DB: miniai_db
+      POSTGRES_USER: guest
+      POSTGRES_PASSWORD: guest
+      PGDATA: /data/pgdata
+    volumes:
+      - ./data:/data:cached
+    ports:
+      - "5324:5432"
+    networks:
+      - default
