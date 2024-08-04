@@ -40,3 +40,5 @@ npm-debug.log
 
 # Ignore dev data
 /data
+
+.envrc

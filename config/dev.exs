@@ -2,11 +2,11 @@ import Config
 
 # Configure your database
 config :miniai, Miniai.Repo,
-  username: "guest",
-  password: "guest",
-  hostname: "localhost",
-  port: "5324",
-  database: "miniai_db",
+  username: System.get_env("DB_USERNAME") || "guest",
+  password: System.get_env("DB_PASSWORD") || "guest",
+  hostname: System.get_env("DB_HOST") || "localhost",
+  port: System.get_env("DB_PORT") || "5324",
+  database: System.get_env("DB_NAME") || "miniai_db",
   stacktrace: true,
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
@@ -68,3 +68,9 @@ config :phoenix, :plug_init_mode, :runtime
 
 # Disable swoosh api client as it is only required for production adapters.
 config :swoosh, :api_client, false
+
+config :openai,
+  # find it at https://platform.openai.com/account/api-keys
+  api_key: System.get_env("OAPI_KEY"),
+  # find it at https://platform.openai.com/account/org-settings under "Organization ID"
+  organization_key: System.get_env("OAPI_ORG_ID")

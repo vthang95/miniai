@@ -19,7 +19,7 @@ defmodule Miniai.MixProject do
   def application do
     [
       mod: {Miniai.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools, :openai]
     ]
   end
 
@@ -53,7 +53,8 @@ defmodule Miniai.MixProject do
       {:gettext, "~> 0.20"},
       {:jason, "~> 1.2"},
       {:dns_cluster, "~> 0.1.1"},
-      {:bandit, "~> 1.5"}
+      {:bandit, "~> 1.5"},
+      {:openai, "~> 0.6.2"}
     ]
   end
 

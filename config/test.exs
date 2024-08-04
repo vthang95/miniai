@@ -6,11 +6,11 @@ import Config
 # to provide built-in test partitioning in CI environment.
 # Run `mix help test` for more information.
 config :miniai, Miniai.Repo,
-  username: "guest",
-  password: "guest",
-  hostname: "localhost",
-  port: "5324",
-  database: "miniai_db",
+  username: System.get_env("DB_USERNAME") || "guest",
+  password: System.get_env("DB_PASSWORD") || "guest",
+  hostname: System.get_env("DB_HOST") || "localhost",
+  port: System.get_env("DB_PORT") || "5324",
+  database: System.get_env("DB_NAME") || "miniai_db",
   pool: Ecto.Adapters.SQL.Sandbox,
   pool_size: System.schedulers_online() * 2
 
