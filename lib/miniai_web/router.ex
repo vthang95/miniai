@@ -5,10 +5,13 @@ defmodule MiniaiWeb.Router do
     plug :accepts, ["json"]
   end
 
+  scope "/public", MiniaiWeb do
+    get "/ping", HealthCheckController, :ping
+    get "/token", PublicController, :login_tele_user
+  end
+
   scope "/api", MiniaiWeb do
     pipe_through :api
-
-    get "/ping", HealthCheck, :ping
   end
 
   # Enable LiveDashboard and Swoosh mailbox preview in development

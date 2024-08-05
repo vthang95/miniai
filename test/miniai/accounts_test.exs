@@ -8,7 +8,7 @@ defmodule Miniai.AccountsTest do
 
     import Miniai.AccountsFixtures
 
-    @invalid_attrs %{id: nil, first_name: nil, last_name: nil}
+    @invalid_attrs %{id: nil, username: nil, first_name: nil, last_name: nil}
 
     test "get_user!/1 returns the user with given id" do
       user = user_fixture()
@@ -16,10 +16,16 @@ defmodule Miniai.AccountsTest do
     end
 
     test "create_user/1 with valid data creates a user" do
-      valid_attrs = %{id: "7488a646-e31f-11e4-aace-600308960662", first_name: "John", last_name: "Doe"}
+      valid_attrs = %{
+        id: "7488a646-e31f-11e4-aace-600308960662",
+        username: "johndoe",
+        first_name: "John",
+        last_name: "Doe"
+      }
 
       assert {:ok, %User{} = user} = Accounts.create_user(valid_attrs)
       assert user.id == "7488a646-e31f-11e4-aace-600308960662"
+      assert user.username == "johndoe"
       assert user.first_name == "John"
       assert user.last_name == "Doe"
     end

@@ -6,6 +6,7 @@ defmodule Miniai.Repo.Migrations.CreateUsers do
       add :id, :uuid, primary_key: true
       add :first_name, :string
       add :last_name, :string
+      add :username, :string
 
       add :tele_id, :bigint
 

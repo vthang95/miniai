@@ -1,4 +1,4 @@
-defmodule MiniaiWeb.HealthCheck do
+defmodule MiniaiWeb.HealthCheckController do
   use MiniaiWeb, :controller
 
   def ping(conn, _params) do
